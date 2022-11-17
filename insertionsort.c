@@ -10,7 +10,7 @@ int main()
         scanf("%d",&arr[i]);
     }
 
-     int i, key, j; 
+    int i, key, j; 
     for (i = 1; i < size; i++)
     { 
         key = arr[i]; 
