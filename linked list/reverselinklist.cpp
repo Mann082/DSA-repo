@@ -54,6 +54,23 @@ node* recursiverevers(node* &head){
     head->link=NULL;
     return newhead;
 }
+node* reversek(node* &head,int k){
+    node* previous=NULL;
+    node* current=head;
+    node* next;
+    int count=0;
+    while(count<k && current!=NULL){
+        next=current->link;
+        current->link=previous;
+        previous=current;
+        current=next;
+        count++;
+    }
+    if(next!=NULL){
+        head->link = reversek(next,k);
+    }
+    return previous;
+}
 int main(){
     int n;
     node* head=NULL;
@@ -64,6 +81,9 @@ int main(){
     reverse(head);
     display(head);
     head=recursiverevers(head);
+    display(head);
+    int k=3;
+    head=reversek(head,k);
     display(head);
     return 0;
 }
