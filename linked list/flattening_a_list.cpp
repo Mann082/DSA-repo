@@ -5,8 +5,8 @@ struct node{
     struct node* right;
     struct node* down;
 };
-struct node* head=NULL;
-struct node* push(struct node* headref,int val){
+node* head=NULL;
+node* push(struct node* headref,int val){
     struct node* newnode=new node();
     newnode->val=val;
     newnode->right=NULL;
@@ -14,7 +14,7 @@ struct node* push(struct node* headref,int val){
     headref=newnode;
     return headref;
 }
-struct node* merge(struct node*a,struct node*b){
+node* merge(struct node*a,struct node*b){
     if(a==NULL)return b;
     if(b==NULL)return a;
 
@@ -41,11 +41,11 @@ node* flatten(struct node* root){
 }
 void display(){
     node* temp=head;
-    while(temp!=NULL){
+    while(temp->down!=NULL){
         cout<<temp->val<<" -> ";
         temp=temp->down;
     }
-    cout<<endl;
+    cout<<temp->val<<endl;
 }
 int main(){
     /* Let us create the following linked list
