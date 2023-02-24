@@ -12,3 +12,8 @@ class treenode{
         right=NULL;
     }
 };
+int height(treenode* root){
+    if(root==NULL)return 0;
+    int ans=max(height(root->left),height(root->right));
+    return 1+ans;
+}
