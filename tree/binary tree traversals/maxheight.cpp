@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 #include "treenode.h"
 using namespace std;
-int max_height(treenode* root){
+int height(treenode* root){
     if(root==NULL)return 0;
-    int ans=max(max_height(root->left),max_height(root->right));
+    int ans=max(height(root->left),height(root->right));
     return 1+ans;
 }
 int main(){
@@ -20,6 +20,6 @@ int main(){
     rootright->right=rootrightright;
     root->left=rootleft;
     root->right=rootright;
-    cout<<max_height(root);
+    cout<<height(root);
     return 0;
 }
